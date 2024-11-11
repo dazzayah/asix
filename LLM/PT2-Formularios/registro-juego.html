@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT2 - Formulario de registro de jugadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            /* Para alinear el título */
+        }
+
+        form {
+            background: url(./media/imgFons.jpg) no-repeat center;
+            background-size: cover;
+            /* Parámetros para el fondo, el background-size 100% 100% + fixed lo dejaba un poco estirado/raro*/
+            padding: 20px;
+            border: 4px solid #ddd;
+            max-width: 400px;
+            /* Anchura maxima y margenes automáticos para centrar. */
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            /* Todas las labels se representarán en negrita para darle enfasis*/
+            display: block;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        input[type="color"] {
+            width: 50px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 80%;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 180px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 45%;
+            padding: 9px;
+            border: none;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            width: 22%;
+            background-color: #28a745;
+            border-radius: 5px;
+        }
+
+        input[type="reset"] {
+            width: 22%;
+            background-color: #dc3545;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 50%;
+        }
+
+        #sexo {
+            display: inline-block;
+            /* Aquí llamamos al ID, ya que es el único elemento que queremos mostrar en línea*/
+        }
+
+        .terminos {
+            display: inline;
+        }
+
+        .terminos a {
+            color: #128fc9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Formulario de Registro de Jugadores</h2>
+    
+    <!--Lo enviaremos mediante GET-->
+    <form action="https://www.w3schools.com/action_page.php" method="GET">
+        <label for="usuario">Nombre de usuario (de 5 a 15 caracteres):</label>
+        <input type="text" id="usuario" name="usuario" minlength="5" maxlength="15" required>
+
+        <label for="password">Contraseña (mínimo 8 caracteres):</label>
+        <input type="password" id="contraseña" name="contraseña" minlength="8" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="color">Elige tu color:</label>
+        <input type="color" id="color" name="color" value="#ff0000">
+
+        <label for="avatar">Carga tu avatar:</label>
+        <input type="file" id="avatar" name="avatar">
+
+        <label for="experiencia">Nivel de Experiencia:</label>
+        <select id="experiencia" name="experiencia">
+            <option value="Principiante">Principiante</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+        </select>
+
+        <label>Selecciona tus géneros de juego favoritos:</label>
+        <label><input type="checkbox" name="juegos" value="Aventura" checked> Aventura</label>
+        <label><input type="checkbox" name="juegos" value="Estrategia"> Estrategia</label>
+        <label><input type="checkbox" name="juegos" value="Acción"> Acción</label>
+
+        <label id="sexo">Sexo:</label>
+        <label id="sexo"><input type="radio" name="genero" value="Masculino" required> Masculino</label>
+        <label id="sexo"><input type="radio" name="genero" value="Femenino"> Femenino</label>
+        <label id="sexo"><input type="radio" name="genero" value="Otro"> Otro</label>
+
+        <label for="descripcion">Descripción de los poderes del jugador:</label>
+        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+
+        <label for="nivel_inicio">Nivel de inicio:</label>
+        <select id="nivel_inicio" name="nivel_inicio">
+            <option value="Lider">Líder</option>
+            <option value="Combatiente">Combatiente</option>
+            <option value="Ayudante">Ayudante</option>
+        </select>
+
+        <label for="caracteristicas">Caracteristicas disponibles:</label>
+        <select id="caracteristicas" name="caracteristicas" multiple>
+            <option value="Velocidad">Velocidad</option>
+            <option value="Resistencia">Resistencia</option>
+            <option value="Destreza">Destreza</option>
+            <option value="Fuerza">Fuerza</option>
+        </select>
+        <hr>
+        <label class="terminos">
+            <input type="checkbox" name="terms" required> Acepto los <a
+                href="https://www.gnu.org/licenses/gpl-3.0.ca.html" target="_blank">términos y condiciones</a>
+        </label>
+        <br>
+
+        <input type="submit" value="Registrar">
+        <input type="reset" value="Limpiar">
+    </form>
+
+</body>
+
+</html>
