@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Texto</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .preformato {
+          font-family: monospace; 
+          white-space: pre; 
+        }
+        .code {
+            font-family: monospace;
+        }
+      </style>
+
+</head>
+
+<body>
+    <h2>Capítulo 3: Estructura, codificación y marcado de texto</h2>
+    <h3>3.1. Estructurar</h3>
+    <h4>3.1.1. Párrafos</h4>
+
+    <!--------------------------------------------- Figura 3.3 ----------------------------------------------->
+
+    <p><i>«Este es el texto que forma el primer párrafo de la página. Los párrafos pueden ocupar varias líneas y el
+            navegador se encarga de ajustar su longitud al tamaño de la ventana.</i></p>
+
+    <p><i>El segundo párrafo de la página también se define encerrando su texto con la etiqueta p. El navegador también
+            se
+            encarga de separar automáticamente cada párrafo.»</i></p>
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <h4>3.1.2. Secciones</h4>
+
+    <!--------------------------------------------- Figura 3.4 y 3.5 ----------------------------------------->
+
+    <h1>Titular de la figura</h1>
+    <p>Los títulos de sección se utilizan para delimitar el comienzo de cada sección de la página. HTML permite crear
+        secciones de hasta seis niveles de importancia. De esta forma, aunque una página puede definir cualquier
+        número de secciones, sólo puede incluir seis niveles jerárquicos.</p>
+
+    <h2>La primera sub-sección</h2>
+    <p>Los títulos de sección se utilizan para delimitar el comienzo de cada sección de la página. HTML permite crear
+        secciones de hasta seis niveles de importancia. De esta forma, aunque una página puede definir cualquier número
+        de secciones, sólo puede incluir seis niveles jerárquicos.</p>
+    <h2>Otra subsección</h2>
+    <h3>Otra subsección más pequeña</h3>
+    <h4>Más pequeña todavía...</h4>
+    <p>La etiqueta h1 es la de mayor importancia y por tanto se utiliza para definir
+        los titulares de la página. La importancia del resto de etiquetas es descendiente, de
+        forma que la etiqueta h6 es la que se utiliza para delimitar las secciones menos
+        importantes de la página.</p>
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <h3>3.2. Marcado de texto</h3>
+
+    <!--------------------------------------------- Figura 3.6 ----------------------------------------------->
+
+    <p>El lenguaje HTML permite marcar algunos segmentos de texto como <i>muy importantes</i> y otros segmentos como
+        <b>los más importantes</b>.
+    </p>
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.7 ----------------------------------------------->
+
+    <h4>La exploración espacial</h4>
+
+    <p>La <b>exploración espacial</b> designa los esfuerzos del hombre en estudiar el espacio y sus astros
+        desde el punto de vista científico y de su explotación económica. Estos esfuerzos pueden involucrar tanto seres
+        humanos viajando en naves espaciales como satélites con recursos de telemetría o sondas teleguiadas enviadas a
+        otros planetas (orbitando o aterrizando en la superficie de estos cuerpos celestes).</p>
+
+    <p>Las personas que pilotan naves espaciales, o son pasajeros en ellas, se llaman astronautas (en Rusia:
+        <i>cosmonautas</i>; en China: <i>taikonautas</i>). Técnicamente se considera astronauta a todo aquel que
+        emprenda un vuelo sub-orbital (sin entrar en órbita) u orbital a como mínimo 100 km de altitud (considerado el
+        límite externo de la atmósfera).
+    </p>
+
+    <p>El cielo siempre ha atraído la atención y los sueños del hombre. Ya en 1634 se publicó la que se considera
+        primera novela de ciencia ficción, <i>Somnium</i>, de <b>Johannes Kepler</b>, que narra un
+        hipotético viaje a la Luna. Más tarde, en 1865, en una famosa obra de ficción titulada <i>"De la Terre à la
+            Lune"</i>, <b>Julio Verne</b> escribe sobre un grupo de hombres que viajó hasta la Luna usando un
+        gigantesco cañón.</p>
+
+    <p>En Francia, <b>Georges Méliès</b>, uno de los pioneros del cine, tomaba la novela de Verne para crear
+        <i>"Le voyage dans la Lune"</i> (1902), una de las primeras películas de ciencia ficción en la que describía
+        un increíble viaje a la Luna. En obras como <i>"The War of the Worlds"</i> (1898) y <i>"The First Men in The
+            Moon"</i> (1901), <b>Herbert George Wells</b> también se concibieron ideas de exploración del
+        espacio y de contacto con civilizaciones extraterrestres.
+    </p>
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.8 ----------------------------------------------->
+
+    <h4>Ejemplo de etiqueta ins y del</h4>
+
+    <p>El HTML, acrónimo inglés de Hyper Text Markup Language (lenguaje de <del datetime="2009-10-25"
+            cite="http://www.librosweb.es/mas_informacion.html">marcado de hipertexto</del> <ins datetime="2009-10-26"
+            cite="http://www.librosweb.es/mas_informacion.html">marcas hipertextuales</ins>) es un lenguaje de marcación
+        diseñado para estructurar textos y presentarlos en forma de hipertexto.
+    </p>
+
+    <!-- El error de datetime a la hora de validar el código es debido a su formato, solucionado
+     siguiendo el formato adecuado: YYYY-MM-DDThh:mm:ss. -->
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.9 ----------------------------------------------->
+
+    <h4>Ejemplo de blackquote</h4>
+
+    <p>Según el W3C, el valor del atributo <i>cite</i> en las etiquetas <b>blockquote</b> tiene el siguiente
+        significado:</p>
+    <blockquote cite="http://www.w3.org/TR/html401/struct/text.html">"El valor de este atributo es una dirección URL que
+        indica el documento original de la cita."</blockquote>
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.10 ----------------------------------------------->
+
+    <h4>Ejemplo de acrónimos</h4>
+    <p>El lenguaje <abbr title="HyperText Markup Language">HTML</abbr> es estandarizado por el <abbr
+            title="World Wide Web Consortium">W3C</abbr>.</p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.11 ----------------------------------------------->
+
+    <h3>Ejercicio de marcado</h3>
+    <h4>El Ártico ha perdido el 14% de su hielo marino perenne en un solo año</h4>
+
+    <p><b>WASHINGTON.-</b> El hielo perenne del Ártico se redujo en un 14% durante el último año, al perder
+        <b>720.000 kilómetros cuadrados</b>, una superficie superior a la Península Ibérica, según datos de la
+        <abbr title="National Aeronautics and Space Administration">NASA</abbr>.</p>
+
+    <p>Según el <abbr title="Laboratorio de Propulsión a Chorro">JPL</abbr>, la pérdida del hielo perenne, que
+        debiera mantenerse durante todo el verano, fue todavía mayor y se acercó a un 50% en el momento en que ese hielo
+        se desplazaba desde el Ártico oriental hacia el oeste.</p>
+
+    <p><b>Son Nghiem</b>, investigador del <abbr title="Laboratorio de Propulsión a Chorro">JPL</abbr>
+        ha declarado que:</p>
+
+    <blockquote><i>"Los cambios registrados en esos años en el hielo ártico son rápidos y espectaculares. De mantenerse
+            la situación, ésta tendrá un impacto profundo en el ambiente, así como en el transporte marino y el
+            comercio."</i></blockquote>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>3.5. Espacios en blanco y nuevas líneas</h3>
+
+    <!--------------------------------------------- Figura 3.12 ----------------------------------------------->
+
+    <h4>Ejemplo de etiqueta p</h4>
+    <p>Este primer párrafo no contiene saltos de línea ni otro tipo de espaciado.</p>
+ 
+    <p>Este segundo párrafo sí que contiene saltos
+    de
+    línea
+    y   otro   tipo   de   espaciado.</p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.13 ----------------------------------------------->
+
+    <h4>Ejemplo de etiqueta br</h4>
+    <p>Este primer párrafo no contiene saltos de línea ni otro tipo de espaciado.</p>
+ 
+    <p>Este segundo párrafo sí que contiene saltos <br/>
+    de <br/>
+    línea <br/>
+    y   otro   tipo   de   espaciado.</p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.14 ----------------------------------------------->
+
+    <h4>Ejemplo de entidad nbsp</h4>
+    <p>Este primer párrafo no contiene saltos de línea ni otro tipo de espaciado.</p>
+ 
+    <p>Este segundo párrafo sí que contiene saltos <br/>
+    de <br/>
+    línea <br/>
+    y &nbsp;&nbsp; otro &nbsp; tipo &nbsp; de &nbsp; espaciado.</p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.15 ----------------------------------------------->
+
+    <h3>Ejercicio de texto preformateado</h3>
+    <h4>Características de los planetas</h4>
+
+    <div class="preformato">
+        Nombre      Diametro relativo   Período orbital   Número de lunas
+        -----------------------------------------------------------------
+        Mercurio          0,382            0,24 años            0
+        Venus             0,949            0,62 años            0
+        Tierra            1                1    año             1
+        Marte             0,532            1,88 años            2
+        Júpiter          11,209           11,86 años           49
+        Saturno           9,449           29,46 años           52
+        Urano             4,007           84,01 años           27
+        Neptuno           3,883          164,80 años           13
+    </div>
+
+    <!-- La fuente que estoy usando no es monoespaciada, por lo que he tenido que usar una etiqueta
+     de estilo para asignar una fuente monoespaciada y un white-space: pre; para que el navegador
+     interprete los espacios correctamente :P -->
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 3.16 ----------------------------------------------->
+
+    <h4>Ejemplo de etiqueta pre</h4>
+    <pre>
+        La etiqueta pre
+            respeta los espacios en blanco
+      y
+         muestra el texto
+        tal y como
+     está escrito.
+    </pre>
+ 
+    <p>
+        La etiqueta pre
+     respeta los espacios en blanco
+      y
+         muestra el texto
+     tal y como
+         está escrito.
+    </p>
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h4>Ejemplo de etiqueta code</h4>
+
+    <!--------------------------------------------- Figura 3.18 ----------------------------------------------->
+
+    <code class="code">
+        La etiqueta code
+     no respeta los espacios en blanco
+    </code>
+ 
+    <p class="code">La etiqueta <code class="code">code</code> es similar a la etiqueta <code class="code">pre</code>, 
+        sobre todo en el formato del texto.</p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>3.6. Codificación de caracteres</h3>
+
+    <h4>Ejercicio de codificación</h4>
+
+    <!--------------------------------------------- Figura 3.19 ----------------------------------------------->
+
+    <h5>Sintaxis de la etiqueta &lt;blockquote&gt;</h5>
+ 
+    <p>La sintaxis de la etiqueta &lt;blockquote&gt; se muestra a continuación: <br/><br/> &lt;blockquote 
+        cite=&quot;<i>...direccion original de la cita...</i>&quot;&gt;Texto que se cita&lt;/blockquote&gt; </p>
+    
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <a href="./index.html"><i>Volver al índice...</i></a>
+</body>
+</html>

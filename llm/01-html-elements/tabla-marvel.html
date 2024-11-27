@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhéroes de Marvel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url(./media/marvel-bg.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        tbody {
+            background-color: white;
+        }
+
+        .logo-marvel {
+            width: 200px;
+            margin: 20px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        tbody td {
+            padding: 15px;
+            text-align: center;
+            border: solid rgb(193, 193, 193);
+            border-width: 1px;
+        }
+
+        img {
+            width: 50px;
+            height: auto;
+        }
+
+        .columna-nombre,
+        .nombre {
+            width: 20%;
+        }
+
+        .columna-icono,
+        .icono {
+            width: 15%;
+        }
+
+        .columna-poder,
+        .poder {
+            width: 40%;
+        }
+
+        .columna-aparicion,
+        .aparicion {
+            width: 25%;
+        }
+
+        .retroceder{
+            text-align: center;
+            color: white;
+            font-size: larger;
+            padding-top: 50px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; color: white;">Lista de Superheroes de Marvel</h1><br><br>
+    <img src="./media/Marvel_Logo.png" alt="Logo Marvel" class="logo-marvel">
+
+    <table>
+        <thead>
+            <tr>
+                <th class="columna-nombre">Nombre</th>
+                <th class="columna-icono">Icono</th>
+                <th class="columna-poder">Poder Principal</th>
+                <th class="columna-aparicion">Primera Aparición</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="nombre">Spider-Man</td>
+                <td class="icono"><img src="./media/spiderman.png" alt="Icono Spider-Man"></td>
+                <td class="poder">Sentido arácnido y lanzar telarañas</td>
+                <td class="aparicion">Amazing Fantasy #15</td>
+            </tr>
+            <tr>
+                <td class="nombre">Iron Man</td>
+                <td class="icono"><img src="./media/ironman3.png" alt="Icono Iron Man"></td>
+                <td class="poder">Armadura de alta tecnología</td>
+                <td class="aparicion">Tales of Suspense #39</td>
+            </tr>
+            <tr>
+                <td class="nombre">Capitán América</td>
+                <td class="icono"><img src="./media/america.png" alt="Icono Capitán América"></td>
+                <td class="poder">Fuerza y agilidad sobrehumanas</td>
+                <td class="aparicion">Captain America Comics #1</td>
+            </tr>
+            <tr>
+                <td class="nombre">Thor</td>
+                <td class="icono"><img src="./media/thor.png" alt="Icono Thor"></td>
+                <td class="poder">Control del trueno y el rayo</td>
+                <td class="aparicion">Journey into Mystery #83</td>
+            </tr>
+            <tr>
+                <td class="nombre">Hulk</td>
+                <td class="icono"><img src="./media/hulk.png" alt="Icono Hulk"></td>
+                <td class="poder">Fuerza descomunal</td>
+                <td class="aparicion">The Incredible Hulk #1</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="retroceder"><a class="retroceder" href="./index.html"><i>Volver al índice...</i></a></div>
+
+</body>
+</html>

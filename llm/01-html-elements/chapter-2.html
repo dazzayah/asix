@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Características básicas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!--Etiqueta style para resaltar el espacio de los bloques-->
+    <style>
+        .bloque {
+            border-width: 1px solid black;
+            border-style: solid;
+        }
+
+        .linea {
+            border-width: 1px solid;
+            border-style: dashed;
+        }
+
+        .ancla{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Capítulo 2: Etiquetas, atributos, elementos y sintaxis HTML</h2>
+    <h3>2.2. El primer documento HTML</h3>
+
+    <!------------------------------------------ Figura 2.3. y 2.5 ------------------------------------------->
+
+    <p>El lenguaje HTML es <b>tan sencillo</b> que practicamente se entiende sin estudiar el significado de sus
+        etiquetas principales.</p>
+    <p>Además de textos en <b>negrita</b>, también se pueden poner <i>en cursiva</i> o <del>tachado</del>.</p>
+
+    <!-------------------------------------------------------------------------------------------------------->
+
+    <h3>2.3. Etiquetas y atributos</h3>
+
+    <!--------------------------------------------- Figura 2.6 ----------------------------------------------->
+    <p> Como indica la documentación, existen los enlaces mediante <b><a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">anclas</a>.</b>
+    </p>
+    <p>
+        Para que estas funcionen correctamente, necesitan ciertos parámetros como los que le he puesto en este caso
+        para el ancla, que apuntan hacia un recurso. A estos se les llaman <b><a
+                href="https://developer.mozilla.org/es/docs/Web/HTML/Attributes" target="_blank">atributos</a></b>.
+    </p>
+    <p>
+        Sin ellos, las etiquetas se comportan de forma predeterminada, y en algunos casos, no hacen <a class="ancla"
+            href="#">nada</a>.
+        <!-- Para limpiar un poquito, he creado la clase "ancla" + font-weight:bold; y usado el atributo target-->
+    </p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>2.4. Elementos HTML</h3>
+
+
+    <p>Además de etiquetas y atributos, HTML define el término elemento para referirse a las partes que componen los
+        documentos HTML.</p>
+    <p>
+        El lenguaje HTML clasifica a todos los elementos en dos grupos: <b>elementos en línea</b> y <b>elementos de
+            bloque</b>.<br>
+        La diferencia entre estos está en el espacio que ocupan en la página, siendo el <i>elemento en bloque</i> el
+        que
+        siempre empieza en una <b>línea nueva</b> y ocupando
+        <b>todo el espacio hasta el final de la línea</b>. Por otro lado el <i>elemento en línea</i> tan solo coge
+        el
+        <b>espacio necesario</b> para mostrar su contenido.
+    </p>
+
+    <!--------------------------------------------- Figura 2.8 ------------------------------------------------>
+
+    <p class="bloque">Los párrafos son elementos de bloque.</p>
+    <a class="linea" href="#">Los enlaces son elementos en línea</a>
+    <p class="bloque">Dentro de un párrafo, <a class="linea" href="#">los enlaces</a> siguen siendo elementos en
+        línea.</p>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <a href="./index.html"><i>Volver al índice...</i></a>
+</body>
+</html>

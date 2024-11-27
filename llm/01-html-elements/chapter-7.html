@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. Tablas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Capítulo 7: Tablas</h2>
+    <h3>Tablas básicas</h3>
+    <p>Las tablas más sencillas de HTML se definen con tres etiquetas: <b>table</b> para crear la tabla, <b>tr</b> para
+        crear cada fila y <b>td</b> para crear cada columna.</p>
+
+    <!--------------------------------------------- Figura 7.2 ----------------------------------------------->
+
+    <h4>Listado de cursos</h4>
+
+    <table>
+        <tr>
+            <td><b>Curso</b></td>
+            <td><b>Horas</b></td>
+            <td><b>Horario</b></td>
+        </tr>
+
+        <tr>
+            <td>CSS</td>
+            <td>20</td>
+            <td>16:00 - 20:00</td>
+        </tr>
+
+        <tr>
+            <td>HTML</td>
+            <td>20</td>
+            <td>16:00 - 20:00</td>
+        </tr>
+
+        <tr>
+            <td>Dreamweaver</td>
+            <td>60</td>
+            <td>16:00 - 20:00</td>
+        </tr>
+    </table>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>Ejercicio 11:</h3>
+
+    <!--------------------------------------------- Figura 7.3 ----------------------------------------------->
+
+    <h4>Su pedido</h4>
+    <table>
+        <tr>
+            <th scope="col">Nombre producto</th>
+            <th scope="col">Precio unitario</th>
+            <th scope="col">Unidades</th>
+            <th scope="col">Subtotal</th>
+        </tr>
+
+        <tr>
+            <td>Reproductor MP3 (80 GB)</td>
+            <td>192.02</td>
+            <td>1</td>
+            <td>192.02</td>
+        </tr>
+
+        <tr>
+            <td>Fundas de colores</td>
+            <td>2.50</td>
+            <td>5</td>
+            <td>12.50</td>
+        </tr>
+
+        <tr>
+            <td>Reproductor de radio &amp; control remoto</td>
+            <td>12.99</td>
+            <td>1</td>
+            <td>12.99</td>
+        </tr>
+
+        <tr>
+            <th scope="row">TOTAL</th>
+            <td>-</td>
+            <td>7</td>
+            <td><b>207.51</b></td>
+        </tr>
+    </table>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>Ejercicio 12:</h3>
+
+    <!--------------------------------------------- Figura 7.4 ----------------------------------------------->
+
+    <h4>Resultado de la búsqueda</h4>
+
+    <table summary="Tabla con los datos de los resultados de la búsqueda">
+        <caption>Resultado de la búsqueda</caption>
+        <tr>
+            <th abbr="Imagen del producto" scope="col">Imagen</th>
+            <th abbr="Datos del producto" scope="col">Datos</th>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="./media/portatil.png" alt="Imagen del ordenador portátil" />
+            </td>
+            <td>
+                <h4><a href="#" title="Ver más información sobre el portátil">Portátil - 3 GHz - 4 GB RAM</a></h4>
+                <p><a href="#" title="Comprar el portátil">Comprar:</a> <del>2.990 &euro;</del> <b>2.599 &euro;</b></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td><img src="./media/videocamara.png" alt="Imagen de la videocámara" /></td>
+            <td>
+                <h4><a href="#" title="Ver más información sobre la videocámara">Videocámara - Alta definición 1080p -
+                        60 GB</a></h4>
+                <p><a href="#" title="Comprar la videocámara">Comprar:</a> <del>1.099 &euro;</del> <b>999 &euro;</b></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td><img src="./media/tv.png" alt="Imagen del televisor" /></td>
+            <td>
+                <h4><a href="#" title="Ver más información sobre el televisor">Televisor - 46" - Full HD</a></h4>
+                <p><a href="#" title="Comprar el televisor">Comprar:</a> <del>1.999 &euro;</del> <b>1.799 &euro;</b></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td><img src="./media/movil.png" alt="Imagen del móvil" /></td>
+            <td>
+                <h4><a href="#" title="Ver más información sobre el móvil">Móvil - 3G - Wi-Fi - 8 GB</a></h4>
+                <p><a href="#" title="Comprar el móvil">Comprar:</a> <del>399 &euro;</del> <b>349 &euro;</b></p>
+            </td>
+        </tr>
+    </table>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>Fusión de columnas</h3>
+
+    <!--------------------------------------------- Figura 7.5 ------------------------------------------------>
+
+    <table style="text-align: center;">
+        <tr>
+            <td colspan="2">A</td>
+        </tr>
+
+        <tr>
+            <td>B</td>
+            <td>C</td>
+        </tr>
+    </table>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>Fusión de filas</h3>
+
+    <!--------------------------------------------- Figura 7.6 ------------------------------------------------>
+
+    <table>
+        <tr>
+            <td>A</td>
+            <td rowspan="2">B</td>
+        </tr>
+
+        <tr>
+            <td>C</td>
+        </tr>
+    </table>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>Fusión de filas y columnas compleja</h3>
+
+    <!--------------------------------------------- Figura 7.7 ------------------------------------------------>
+
+    <table style="text-align: center;">
+        <tr>
+            <td colspan="3">A</td>
+            <td>B</td>
+        </tr>
+
+        <tr>
+            <td>C</td>
+            <td colspan="2">D</td>
+            <td>E</td>
+        </tr>
+
+        <tr>
+            <td colspan="4">F</td>
+        </tr>
+
+        <tr>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+        </tr>
+    </table> <br>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <!--------------------------------------------- Figura 7.8 ------------------------------------------------>
+
+    <table style="text-align: center;">
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td rowspan="3">C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td rowspan="2">E</td>
+            <td>F</td>
+            <td rowspan="3">G</td>
+        </tr>
+        <tr>
+            <td>H</td>
+        </tr>
+        <tr>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+        </tr>
+    </table>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <h3>Ejercicio 13</h3>
+
+    <!--------------------------------------------- Figura 7.9 ------------------------------------------------>
+
+    <h4>Comparativa de reproductores MP3</h4>
+
+    <table style="text-align: center;"
+        summary="Tabla comparativa de las características técnicas de los reproductores MP3">
+        <caption>Tabla comparativa de las características técnicas de los reproductores MP3</caption>
+        <tr>
+            <th></th>
+            <th abbr="Reproductor mini" scope="col" colspan="3">
+                <img src="./media/mp3_pequeno_blanco.png" alt="Imagen del reproductor MP3 pequeño de color blanco" />
+                <img src="./media/mp3_pequeno_negro.png" alt="Imagen del reproductor MP3 pequeño de color negro" />
+                <br /><strong>MP3 mini</strong>
+            </th>
+            <th abbr="Reproductor estándar" scope="col" colspan="2">
+                <img src="./media/mp3_grande_blanco.png" alt="Imagen del reproductor MP3 grande de color blanco" />
+                <img src="./media/mp3_grande_negro.png" alt="Imagen del reproductor MP3 grande de color negro" />
+                <br /><strong>MP3 grande</strong>
+            </th>
+        </tr>
+
+        <tr>
+            <th scope="row" abbr="Capacidad">Capacidad de almacenamiento</th>
+            <td>4GB <br /> (1.000 canciones)</td>
+            <td>8GB <br /> (2.000 canciones)</td>
+            <td>16GB <br /> (4.000 canciones)</td>
+            <td>30GB <br /> (7.500 canciones)</td>
+            <td>80GB <br /> (20.000 canciones)</td>
+        </tr>
+
+        <tr>
+            <th scope="row" abbr="Colores disponibles">Colores</th>
+            <td>
+                <img src="./media/color_blanco.png" alt="Color blanco" />
+            </td>
+            <td>
+                <img src="./media/color_negro.png" alt="Color blanco" />
+                <img src="./media/color_verde.png" alt="Color verde" />
+                <img src="./media/color_azul.png" alt="Color azul" />
+                <img src="./media/color_rosa.png" alt="Color rosa" />
+            </td>
+            <td>
+                <img src="./media/color_negro.png" alt="Color negro" />
+            </td>
+            <td colspan="2">
+                <img src="./media/color_blanco.png" alt="Color blanco" />
+                <img src="./media/color_negro.png" alt="Color negro" />
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row" abbr="Tamaño de pantalla">Pantalla</th>
+            <td colspan="3">LCD de 3 cm (diagonal) con retroiluminación</td>
+            <td colspan="2">LCD de 6 cm (diagonal) con retroiluminación</td>
+        </tr>
+
+        <tr>
+            <th rowspan="2" scope="row" abbr="Tiempo de carga">Tiempo de carga</th>
+            <td rowspan="2" colspan="3">Unas 3 horas</td>
+            <td colspan="2">Unas 4 horas</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">Unas 2 horas para alcanzar el 80% de la capacidad</td>
+        </tr>
+    </table> <br><br>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
+    <a href="./index.html"><i>Volver al índice...</i></a>
+</body>
+</html>
