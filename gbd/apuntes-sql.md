@@ -5,19 +5,24 @@ Ficha de las distintas declaraciones que vamos probando en clase.
 ## Introducción
 Analizaremos el lenguaje que utilizaremos para comunicarnos con el intérprete SQL de MariaDB.
 
-### Comandos iniciales
+## Comandos iniciales
+### SHOW
 
-````
-SHOW
-````
 Utilizado sobre los distintos elementos del GBD, como:
 * Las bases de datos (DATABASES)
 * Las tablas (TABLES)
 
 ````
-USE
+SHOW DATABASES;
 ````
-Utilizado para seleccionar una base de datos
+
+### USE
+
+Utilizado para seleccionar una base de datos sobre la que trabajar:
+
+````
+USE DB_NAME;
+````
 
 ### Installing
 
