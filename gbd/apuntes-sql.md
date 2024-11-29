@@ -11,7 +11,6 @@ Analizaremos el lenguaje que utilizaremos para comunicarnos con el intérprete S
 Utilizado sobre los distintos elementos del GBD, como:
 * Las bases de datos (DATABASES)
 * Las tablas (TABLES)
-
 ````
 SHOW DATABASES;
 ````
@@ -23,6 +22,21 @@ Utilizado para seleccionar una base de datos sobre la que trabajar:
 ````
 USE DB_NAME;
 ````
+
+### DROP
+Utilizado para descartar distintos elementos presentes en el GBD:
+* Las bases de datos (DATABASES)
+* Las tablas (TABLES)
+````
+DROP DATABASE DB_NAME;
+DROP TABLE TABLE_NAME;
+````
+
+### 
+
+
+
+
 
 ### Installing
 
