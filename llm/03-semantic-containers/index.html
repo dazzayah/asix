@@ -1,113 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contenedores semánticos y posicionamiento</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-        }
-        header{
-            background-color: rgb(88, 219, 79);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        header > p{
-            margin-bottom: 0.6rem;
-        }
-        
-        ul{
-            list-style-type: none;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;/* Horizontal */
-            align-items: center; /* Vertical */
-            padding: 10px;
-        }
-
-        ul li {
-            border-right: 1px solid white;
-            padding-right: 0px;
-        }
-
-        li:last-child{
-            border: 0;
-        }
-
-        a{
-            padding: 2px 20px;
-            color: white;
-            text-decoration: none;
-        }
-
-        nav{
-            background-color: rgb(142, 68, 211);
-        }
-        
-        h1{
-            margin: 2rem;
-        }
-
-        main{
-            display: flex;
-            flex-direction: row;
-        }
-
-        .container{
-            display: flex;
-            flex-direction: column;
-            width: 66.66%;
-            flex-basis: 100%;
-            margin: 20px;
-        }
-
-        .inner-container{
-            display: flex;
-            flex-direction: row;
-            background-color: beige;
-        }
-
-        aside{
-            width: 33.33%;
-        }
-
-        section{
-        -webkit-box-shadow: 10px 10px 41px 7px rgba(0,0,0,0.16);
-        -moz-box-shadow: 10px 10px 41px 7px rgba(0,0,0,0.16);
-        box-shadow: 10px 10px 41px 7px rgba(0,0,0,0.16);
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<header>
-    <h1>Header</h1>
-    <p>Un diseño con múltiples secciones y artículos, estructurado de manera automática</p>
-    <nav>
-        <ul>
-            <li><a href="#">Menu 1</a></li>
-            <li><a href="#">Menu 2</a></li>
-            <li><a href="#">Menu 3</a></li>
-            <li><a href="#">Menu 4</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <h1>Diseño web con Flexbox</h1>
+        <p>Iliá Briansó, ASIX 1º Tarde - Lenguaje de marcas y sistemas de gestión de la información</p>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Referencias</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<main>
-    <div class="container">
-        <div class="inner-container">
-            <section>
-                <h2>Sección 1</h2>
-                <div class="article-container">
+    <main>
+        <div class="section-wrapper">
+            <div class="row-container">
+                <section>
+                    <h2>Sección 1</h2>
                     <article>
                         <h3>Artículo 1.1</h3>
                         <p>Contenido del primer artículo.</p>
@@ -116,12 +35,9 @@
                         <h3>Artículo 1.2</h3>
                         <p>Contenido del segundo artículo.</p>
                     </article>
-                </div>
-            </section>
-
-            <section>
-                <h2>Sección 2</h2>
-                <div class="article-container">
+                </section>
+                <section>
+                    <h2>Sección 2</h2>
                     <article>
                         <h3>Artículo 2.1</h3>
                         <p>Contenido del primer artículo.</p>
@@ -130,30 +46,35 @@
                         <h3>Artículo 2.2</h3>
                         <p>Contenido del segundo artículo.</p>
                     </article>
-                </div>
-            </section>
-        </div>
-        <section>
-            <h2>Sección 3</h2>
-            <div class="article-container">
-                <article>
-                    <h3>Artículo 3.1</h3>
-                    <p>Contenido del artículo único en esta sección.</p>
-                </article>
+                </section>
             </div>
-        </section>
-    </div>
+            <div class="full-container">
+                <section class="full-width">
+                    <h2>Sección 3</h2>
+                    <article>
+                        <h3>Artículo 3.1</h3>
+                        <p>Contenido del artículo único en esta sección.</p>
+                    </article>
+                </section>
+            </div>
+        </div>
 
-    <aside>
-        <h3>Información adicional</h3>
-        <p>blablablablablablablabalblbalbalb</p>
-    </aside>
-    
-</main>
+        <aside>
+            <h3>Información adicional</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsam velit molestiae, maiores et
+                temporibus laborum excepturi commodi adipisci suscipit autem distinctio rem sunt veritatis harum ad
+                dolore vitae officia, consequatur nisi inventore illum? Excepturi, quidem fuga? Ut libero dignissimos
+                delectus, quisquam commodi id laborum voluptate ipsa recusandae natus sint eligendi impedit modi
+                asperiores in non consequuntur? Natus maxime ducimus placeat nisi cupiditate, doloribus amet quod
+                voluptatem tempora nulla consequatur eveniet eos delectus? </p>
+        </aside>
 
-<footer>
-    <p>© 2024 Mi Web</p>
-</footer>
+    </main>
+
+    <footer>
+        <p>© 2024 Mi Web</p>
+    </footer>
 
 </body>
+
 </html>
