@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquesta esportiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enquesta esportiva</h1>
+        <form action="processar.php" method="POST">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom">
+
+            <label for="data_naixement">Data de naixement</label>
+            <input type="date" id="data_naixement" name="data_naixement" required>
+
+            <label for="esports">Els 3 esports preferits (separats per comes)</label>
+            <input type="text" id="esports" name="esports" required>
+
+
+            <label for="nivell">Nivell de pràctica del primer esport (escala 0-10)</label>
+	    <select id="nivell" name="nivell" required>
+	    <option value="" disabled selected>Selecciona el nivell</option>
+		    <!-- Opcions numèriques -->
+		    <option value="0">0 - Només com espectador</option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		    <option value="7">7</option>
+		    <option value="8">8</option>
+		    <option value="9">9</option>
+		    <option value="10">10 - Màxim nivell</option>
+	    </select>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

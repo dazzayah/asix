@@ -63,6 +63,8 @@ main {
 
 .section-wrapper { /* El contenedor que agrupa todas las secciones */
   width: 85%; /* Para dejar el 15% restante al aside */
+  display: flex;
+  flex-direction: column;
 }
 
 .row-container { /* El contenedor que agrupa las dos primeras secciones en forma de columnas */
