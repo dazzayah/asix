@@ -1,0 +1,59 @@
+DROP DATABASE IF EXISTS ILIA_PT2;
+CREATE DATABASE ILIA_PT2;
+USE ILIA_PT2;
+
+-- Ejercicio A: Alcalde y población --
+/*
+Alcaldes (DNI, Nom, Cognoms, Adreça, AnyNaixement)
+Poblacions (Codi,nom, NumHabitants, Comarca, DNI)
+on DNI és clau forana de Alcaldes.
+
+NumHabitants ha de ser major de 0 --> https://www.w3schools.com/mysql/mysql_check.asp
+*/
+
+CREATE TABLE alcaldes (
+    dni VARCHAR(9),
+    nombre VARCHAR(50),
+    apellidos VARCHAR(255),
+    direccion VARCHAR(255),
+    año_nacimiento YEAR,
+    PRIMARY KEY(dni)
+);
+
+CREATE TABLE poblaciones (
+    codigo INT,
+    nombre VARCHAR(50),
+    numhabitantes INT,
+    comarca VARCHAR(50),
+    dni VARCHAR(9),
+    PRIMARY KEY(codigo),
+    FOREIGN KEY(dni) REFERENCES alcaldes(dni),
+    CHECK(numhabitantes > 0)
+);
+
+-- Ejercicio B: Empleados e hijos --
+
+CREATE TABLE empleados (
+    dni VARCHAR(9),
+    nombre VARCHAR(50),
+    apellidos VARCHAR(255),
+    año_nacimiento YEAR,
+    PRIMARY KEY(dni)
+);
+
+CREATE TABLE eshijo (
+    dni1 VARCHAR(9),
+    dni2 VARCHAR(9),
+    PRIMARY KEY(dni1,dni2),
+    FOREIGN KEY(dni1) REFERENCES empleados(dni),
+    FOREIGN KEY(dni2) REFERENCES empleados(dni)
+);
+
+-- Ejercicio C: Libros y autores --
+
+
+
+-- Ejercicio D: Pisos y personas --
+-- Ejercicio E: Jugadores y equipos --
+-- Ejercicio F: Recetas e ingredientes --
+
