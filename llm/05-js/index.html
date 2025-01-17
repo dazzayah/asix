@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Heroes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .hero-container {
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #000;
+            width: 300px;
+            background-color: white;
+        }
+
+        #hero-name {
+            font-size: 24px;
+            color: #ff0000;
+        }
+
+        #hero-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #000;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #ondavital-hover:hover {
+            background-color: #ffc17f;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bola de Drac</h1>
+    <div class="hero-container">
+        <p id="hero-name">Son Goku de petit!</p>
+        <img id="hero-image"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtyfqLo8D8rVFt5SXwkEQCbd2j24MetTc87Q&s"
+            alt="Son Goku nen">
+
+        <div style="display: none" id="dragon-ball">
+            <p>Hem trobat les boles del Drac!</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOReh9peFjy0TZLwMhpYfZHsGK06eGkoBgrg&s"
+                alt="les boles de drac">
+        </div>
+    </div>
+
+
+    <!-- Ex1: Modifica la funcionalitat del boto per a canviar també la foto del SonGoku i fer-lo creixer!
+        Pots fer servir aquesta imatge per exemple: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTzCEH5-wRUa_U3JgOVQeP5hQ2AqoibTaiVg&s 
+        Pot modificar una mica el DIV que conte la imatge del GOKU per a poder accedir-hi mes facilment. -->
+
+    <button type="button"
+        onclick="document.getElementById('hero-name').innerHTML = 'Ara soc Son Goku de gran!'; 
+    document.getElementById('hero-image').src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTzCEH5-wRUa_U3JgOVQeP5hQ2AqoibTaiVg&s'">
+        Fer Creixer al Goku
+    </button>
+
+
+
+    <!-- Ex: 2 Modifica el boto de sota per trobar les boles de Drac. Has de ver visible el element: 'boles-de-drac' -->
+    <button type="button" onclick="document.getElementById('dragon-ball').style.display = 'block'">
+        Trobar les boles de Drac
+    </button>
+
+    <div id="ondavital-hover"
+        style="padding: 30px; width: 50%; margin: auto; border: #000 solid; border-radius: 15px; margin-top: 50px;"
+        onmouseover="document.getElementById('ondavital').style.display = 'flex'">
+        <p>¡ONDA VITAL YAAA! (Lo siento profe)</p>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img id="ondavital" src="Kame.jpg" style="width: 650px; height: 320px; display: none; padding-top: 40px;">
+    </div>
+</body>
+
+</html>
