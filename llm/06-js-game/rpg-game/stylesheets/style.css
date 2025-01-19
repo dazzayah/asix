@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe0b2;
+  }
+  .screen {
+    display: none;
+    padding: 20px;
+  }
+  .visible {
+    display: block;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  .log {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    text-align: left;
+  }

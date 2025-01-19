@@ -1,0 +1,32 @@
+---
+const currentYear = new Date().getFullYear(); // Función para almacenar el año actual en una variable.
+---
+
+<!-- 
+
+Un footer sencillito adaptado, con un enlace a mi perfil y licencia Creative Commons sin ningun tipo de copyrigth.
+https://flowbite.com/docs/components/footer/ 
+
+-->
+
+<footer class="m-4 pt-12">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8 flex flex-col items-center">
+        <ul class="flex flex-wrap justify-center items-center text-sm font-medium text-gray-400">
+            <li>
+                <a href="#top" class="hover:underline me-4 md:me-6">Inicio</a>
+            </li>
+            <li>
+                <a href="#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+            </li>
+            <li>
+                <a href="mailto:ilbr294@vidalibarraquer.net" class="hover:underline">Contacto</a>
+            </li>
+        </ul>
+        <hr class="w-full my-6 border-gray-700 lg:my-8" />
+        <span class="block text-sm text-center text-gray-400">© {currentYear} 
+            <a href="https://es.linkedin.com/in/ili%C3%A1-brians%C3%B3-464a9325a" target="_blank" class="hover:underline">Iliá Briansó</a>.
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" class="hover:underline">Sujeto a Creative Commons CC0 1.0 Universal (CC0 1.0).</a>
+        </span>
+    </div>
+</footer>
+

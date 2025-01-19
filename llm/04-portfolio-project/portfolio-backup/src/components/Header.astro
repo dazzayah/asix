@@ -1,0 +1,85 @@
+<header class="flex justify-between items-center py-5 px-6 mx-auto max-w-7xl">
+    <!-- Menú normal para pantallas de ordenador -->
+    <nav class="hidden lg:flex flex-row gap-x-10 opacity-95">
+      <a href="#top" class="hover:scale-110 hover:text-blue-300 transition">Inicio</a>
+      <a href="#formacion" class="hover:scale-110 hover:text-blue-300 transition">Formación</a>
+      <a href="#proyectos" class="hover:scale-110 hover:text-blue-300 transition">Proyectos</a>
+      <a href="#sobre-mi" class="hover:scale-110 hover:text-blue-300 transition">Sobre mí</a>
+      <a href="mailto:ilbr294@vidalibarraquer.net" class="hover:scale-110 hover:text-blue-300 transition">Contacto</a>
+    </nav>
+  
+    <!-- Menú hamburguesa para pantallas pequeñas -->
+    <div class="lg:hidden flex relative">
+      <!-- Botón hamburguesa -->
+      <button 
+        id="menu-toggle" 
+        class="p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+        aria-label="Abrir menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Menú desplegable -->
+  <nav 
+    id="mobile-menu" 
+    class="fixed top-0 left-0 w-full h-[33vh] flex flex-col items-center justify-center backdrop-blur-sm bg-[#000000d3]  text-white text-lg space-y-4 shadow-lg transition-transform transform -translate-y-full z-50">
+    
+    <!-- Botón para cerrar -->
+    <button 
+      id="menu-close" 
+      class="absolute top-4 right-6 p-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+      aria-label="Cerrar menú">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  
+    <a href="#top" id="link-top" class="hover:scale-110 transition relative">Inicio</a>
+    <a href="#sobre-mi" id="link-sobre-mi" class="hover:scale-110 transition relative">Sobre mí</a>
+    <a href="#formacion" id="link-formacion" class="hover:scale-110 transition relative">Formación</a>
+    <a href="#proyectos" id="link-proyectos" class="hover:scale-110 transition relative">Proyectos</a>
+    <a href="mailto:ilbr294@vidalibarraquer.net" id="link-contacto" class="hover:scale-110 transition relative">Contacto</a>
+  </nav>
+  
+<!-- 
+  Menú móvil cortesía de alguien...
+  
+  No tenía demasiada idea de como hacerlo, ya que si quiero lograr un buen responsiveness, el nav debe ir acorde
+  así que me basé en assets libres y lo adapté a mi contenido. 
+  -->
+
+  <script> 
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('#mobile-menu a');
+  
+    // Muestra el menú al hacer clic en el botón hamburguesa
+    menuToggle!.addEventListener('click', () => {
+      mobileMenu!.classList.remove('hidden');
+      setTimeout(() => {  
+        mobileMenu!.classList.remove('-translate-y-full');
+        mobileMenu!.classList.add('translate-y-0');
+      }, 10);
+    });
+  
+    // Oculta el menú al hacer clic en el botón de cerrar 
+    // (gracias al hecho de añadir una clase hidden mediante tailwind)
+    menuClose!.addEventListener('click', () => {
+      mobileMenu!.classList.add('-translate-y-full');
+      mobileMenu!.classList.remove('translate-y-0');
+      setTimeout(() => mobileMenu!.classList.add('hidden'), 300);
+    });
+  
+    // Destaca en azul el enlace clicado
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        links.forEach((l) => l.classList.remove('text-blue-300'));
+        link.classList.add('text-blue-300');
+      });
+    });
+  </script>
+  

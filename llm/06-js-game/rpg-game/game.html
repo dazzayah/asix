@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body> 
+    <div id="combatScreen" class="visible">
+        <h1>Combate</h1>
+        <div class="log" id="combatLog">Registro de combate:</div>
+        <button id="attackButton">Atacar</button>
+        <button id="defendButton">Defender</button>
+        <button id="magicButton">Magia</button>
+        <button id="healButton">Curar</button>
+    </div>
+
+    <!-- Pantalla de Fin del Juego -->
+    <div id="endScreen" class="screen">
+        <h1 id="resultMessage">Resultado del juego</h1>
+        <button id="restartButton">Reiniciar</button>
+    </div>
+
+    <!-- JS Script -->
+    <script src="stats.js"></script>
+    <script src="combat.js"></script>
+</body>
+</html>

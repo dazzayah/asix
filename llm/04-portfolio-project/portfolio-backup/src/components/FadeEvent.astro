@@ -1,0 +1,27 @@
+<!-- 
+Script para animar la entrada de la sección de formaciones.
+No está muy allá, ya que apunta directamente al ID de la lista, por lo que no es reutilizable de momento. 
+-->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+          }
+        });
+      },
+      {
+        threshold: 0.8, // Visibilidad antes de que se active la animación
+      },
+    );
+
+    const target = document.getElementById("formacion-list");
+    if (target) {
+      observer.observe(target);
+    }
+  });
+</script>

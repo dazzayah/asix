@@ -1,0 +1,55 @@
+---
+import Badge from "./Badge.astro"
+import Social from "./Social.astro"
+import LinkedInIcon from "../assets/icons/LinkedIn.astro"
+import GithubIcon from "../assets/icons/GitHub.astro"
+import CVIcon from "../assets/icons/CV.astro"
+import DropDown from "./DropDown.astro"
+---
+
+<!-- Sección "Hero", o la parte más visual de la página web, lo que se ve nada más cargarla. -->
+<div class="flex flex-col lg:flex-row gap-x-3 mb-2 lg:mb-4">
+    <h1
+        class="text-papaya text-5xl font-bold flex flex-row gap-x-4">
+        ¡Hola, soy Iliá!
+    </h1>
+    <!-- Utilizamos la badge para definir una especie de "status" con hipervínculo -->
+    <a
+        class="flex justify-start mt-2 lg:mb-1 lg:items-end"
+        href="https://es.linkedin.com/in/ili%C3%A1-brians%C3%B3-464a9325a"
+        target="_blank"
+        class="flex justify-center items-center"
+    >
+        <Badge>¡Buscando trabajo!</Badge>
+    </a>
+</div>
+
+<!-- Acompañamiento del título con descripción breve -->
+<h2 class="text-xl text-wrap pb-5">
+    Técnico en 
+    <span class="text-[#FFDCA0] font-semibold inline-block">sistemas microinformáticos</span> y 
+    <span class="text-[#FFDCA0] font-semibold inline-block">administrador de sistemas en red</span> de Tarragona, España.
+    Buscando especializarme en <span class="text-peach font-semibold inline-block"> arquitectura de sistemas </span> y 
+    <span class="text-peach font-semibold inline-block">seguridad informática</span>. 
+</h2>
+
+<!-- Redes de trabajo y CV -->
+<div class="flex gap-x-3">
+    <Social
+        href="https://es.linkedin.com/in/ili%C3%A1-brians%C3%B3-464a9325a">
+        <LinkedInIcon />
+        LinkedIn
+    </Social>
+
+    <Social href="https://www.github.com/dazzayah/">
+        <GithubIcon fill="#fff"/>
+        GitHub
+    </Social>
+
+    
+    <DropDown>
+        <CVIcon />
+        CV
+    </DropDown>
+    
+</div>

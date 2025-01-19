@@ -1,0 +1,30 @@
+---
+import TimeLine from "./TimeLine.astro" // El componente que contiene la estructura y los estilos.
+
+const experiencia = [ // Inicializamos el array de los elementos que contienen la información de cada una de mis formaciones. 
+    {
+        titulo: "Modelación 3D en Blender y FX",
+        fecha: "2020 - Udemy, Online",
+        descr: "Aprendí mucho sobre la manipulación y creación de objetos 3D, de texturizado, rendering, multimedia y efectos especiales en Blender y otros programas."
+    },
+    {
+        titulo: "Sistemas Microinformáticos y Redes",
+        fecha: "2022 - Instituto Francesc Vidal i Barraquer",
+        descr: "Estudios de grado medio en sistemas microinformáticos y redes, donde se nos especializa en múltiples disciplinas del ámbito IT, sistemas, redes locales, etc."
+    },
+    {
+        titulo: "Administración de Sistemas Informáticos en Red",
+        fecha: "2024 - Instituto Francesc Vidal i Barraquer",
+        descr: "Estudios de grado superior en administración de sistemas informáticos en red, donde se nos especializa en la administración de sistemas, redes, seguridad, etc."
+    },
+]
+---
+
+    {
+        experiencia.map(experiencia => (
+            <li class="mb-10 ms-4">
+                <TimeLine {...experiencia} />
+            </li>
+        ))
+    }
+

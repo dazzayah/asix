@@ -1,0 +1,105 @@
+---
+import GitHub from "../assets/icons/GitHub.astro"
+import Tailwind from "../assets/icons/Tailwind.astro"
+import Python from "../assets/icons/Python.astro"
+import Link from "../assets/icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import AstroLogo from "../assets/icons/AstroLogo.astro"
+import HTML5 from "../assets/icons/HTML5.astro"
+
+const TAGS = {
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#254e70] text-white",
+    icon: Python,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#481477] text-white",
+    icon: AstroLogo,
+  },
+  HTML5: {
+    name: "HTML5",
+    class: "bg-[#b23515] text-white",
+    icon: HTML5,
+  },
+
+}
+
+const PROJECTS = [
+  {
+    title: "¡Este portfolio!",
+    description:
+      "Para la realización de este portfolio, he utilizado un framework de React llamado Astro junto a TailwindCSS. ",
+    link: "https://portfolio-lovat-five-76.vercel.app/",
+    github: "https://github.com/dazzayah/portfolio",
+    image: "portfolio-thumbnail.webp",
+    tags: [TAGS.TAILWIND, TAGS.ASTRO, TAGS.HTML5],
+  },
+  {
+    title: "Instagram Messages JSON Parser",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec pur us. Donec nec nunc nec purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus.",
+    link: "https://github.com/dazzayah/instagram-log-parser.git",
+    github: "https://github.com/dazzayah/instagram-log-parser.git",
+    image: "project-placeholder.png",
+    tags: [TAGS.PYTHON],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img class="object-cover object-center w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-papaya">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-400">{description}</div>
+      <div class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </div>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
