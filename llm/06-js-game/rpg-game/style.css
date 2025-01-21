@@ -5,19 +5,22 @@ body {
     padding: 0;
     background-color: #ffe0b2;
   }
-  .screen {
+
+  .hidden {
     display: none;
-    padding: 20px;
   }
+
   .visible {
     display: block;
   }
+
   button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     margin: 10px;
   }
+
   .log {
     border: 1px solid #ccc;
     padding: 10px;
@@ -26,3 +29,5 @@ body {
     background-color: #fff;
     text-align: left;
   }
+
+
