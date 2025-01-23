@@ -12,12 +12,7 @@
     const healButton = document.getElementById("healButton");
     const restartButton = document.getElementById("restartButton");
 
-    // Evento para comenzar el juego
-    startButton.addEventListener("click", () => {
-        startScreen.classList.remove("visible");
-        combatScreen.classList.add("visible");
-      });
-      
+
     // Evento para reiniciar el juego
     restartButton.addEventListener("click", () => {
       endScreen.classList.remove("visible");
