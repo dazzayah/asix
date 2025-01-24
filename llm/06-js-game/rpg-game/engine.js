@@ -1,6 +1,6 @@
-function almacenarStats() {
+// Exportar e importar estadísticas a nivel de sesión
 
-    // Correr un parseInt para pasarlo todo a int
+function setStats() {
 
     const str = document.getElementById('fuerza').value;
     const agi = document.getElementById('agilidad').value;
@@ -15,15 +15,16 @@ function almacenarStats() {
     sessionStorage.setItem('spr', spr);
 
     window.location.href = 'game.html';
+
 };
 
-function importarStats() {
+function getStats() {
 
-    const str = sessionStorage.getItem('str');
-    const agi = sessionStorage.getItem('agi');
-    const int = sessionStorage.getItem('int');
-    const sta = sessionStorage.getItem('sta');
-    const spr = sessionStorage.getItem('spr');
+    const str = parseInt(sessionStorage.getItem('str'), 10);
+    const agi = parseInt(sessionStorage.getItem('agi'), 10);
+    const int = parseInt(sessionStorage.getItem('int'), 10);
+    const sta = parseInt(sessionStorage.getItem('sta'), 10);
+    const spr = parseInt(sessionStorage.getItem('spr'), 10);
 
     console.log('Fuerza:', str);
     console.log('Agilidad:', agi);
@@ -32,3 +33,30 @@ function importarStats() {
     console.log('Espíritu:', spr);
 
 };
+
+// Validación de puntos de estadísticas en el menú
+
+function validatePoints() {
+    let totalPoints = 0;
+
+    statInputs.forEach(input => {
+        totalPoints += parseInt(input.value) || 0;
+    });
+
+    if (totalPoints > 15) {
+        startButton.disabled = true;
+        alert('No puedes asignar más de 15 puntos en total.');
+    } else {
+        startButton.disabled = false;
+    }
+};
+
+// Combate y juego
+
+function logAction(message) {
+    const newLogEntry = document.createElement("p");
+    newLogEntry.textContent = message;
+    combatLog.appendChild(newLogEntry);
+    combatLog.scrollTop = combatLog.scrollHeight;
+  }
+

@@ -11,10 +11,10 @@
 
 <body> 
     <script>
-        importarStats()
+        getStats()
     </script>
     
-    <div id="combatScreen" class="visible">
+    <div id="gameMenu" class="visible">
         <h1>Combate</h1>
         <div class="log" id="combatLog">Registro de combate:</div>
         <button id="attackButton">Atacar</button>
@@ -24,11 +24,53 @@
     </div>
 
     <!-- Pantalla de Fin del Juego -->
-    <div id="endScreen" class="screen">
+    <div id="endScreen" class="hidden">
         <h1 id="resultMessage">Resultado del juego</h1>
         <button id="restartButton">Reiniciar</button>
     </div>
-    
+
+    <script>
+
+    // Menús
+    const combatScreen = document.getElementById("gameMenu");
+    const endScreen = document.getElementById("endScreen");
+
+
+    // Botones
+    const startButton = document.getElementById("startButton");
+    const attackButton = document.getElementById("attackButton");
+    const defendButton = document.getElementById("defendButton");
+    const magicButton = document.getElementById("magicButton");
+    const healButton = document.getElementById("healButton");
+    const restartButton = document.getElementById("restartButton");
+
+    // Registro de combate
+    const combatLog = document.getElementById("combatLog");
+
+    // Evento para reiniciar el juego
+    restartButton.addEventListener("click", () => {
+      endScreen.classList.remove("visible");
+      startScreen.classList.add("visible");
+    });
+
+    // Botones de combate: Añadir lógica más tarde
+    attackButton.addEventListener("click", () => {
+      logAction("El jugador ataca con fuerza.");
+    });
+
+    defendButton.addEventListener("click", () => {
+      logAction("El jugador se defiende.");
+    });
+
+    magicButton.addEventListener("click", () => {
+      logAction("El jugador lanza un hechizo.");
+    });
+
+    healButton.addEventListener("click", () => {
+      logAction("El jugador se cura.");
+    });
+
+    </script>
 
 
 </body>

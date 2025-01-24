@@ -11,3 +11,5 @@ console.log('Agilidad:', agility);
 console.log('Aguante:', stamina);
 
 
+const str = parseInt(document.getElementById('fuerza').value, 10);
+console.log(typeof str);

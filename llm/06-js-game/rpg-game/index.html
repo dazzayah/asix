@@ -11,30 +11,37 @@
 
 <body>
     <div>
-        <h1>Elige stats</h1>
+        <h1>Elige tus estadísticas:</h1>
         <label for="fuerza">Fuerza:</label>
-        <input type="number" id="fuerza" min="0" value="0"><br>
+        <input class="stat-input" type="number" id="fuerza" min="0" value="0"><br>
 
         <label for="agilidad">Agilidad:</label>
-        <input type="number" id="agilidad" min="0" value="0"><br>
+        <input class="stat-input" type="number" id="agilidad" min="0" value="0"><br>
 
         <label for="intelecto">Intelecto:</label>
-        <input type="number" id="intelecto" min="0" value="0"><br>
+        <input class="stat-input" type="number" id="intelecto" min="0" value="0"><br>
 
         <label for="aguante">Aguante:</label>
-        <input type="number" id="aguante" min="0" value="0"><br>
+        <input class="stat-input" type="number" id="aguante" min="0" value="0"><br>
 
         <label for="espiritu">Espíritu:</label>
-        <input type="number" id="espiritu" min="0" value="0"><br>
-        <button id="start">Comenzar</button>
+        <input class="stat-input" type="number" id="espiritu" min="0" value="0"><br>
+        <button id="start-button">Comenzar</button>
     </div>
 
-    
-    <script>
-        const str = parseInt(document.getElementById('fuerza').value, 10);
-        console.log(typeof str);
 
-        document.getElementById('start').addEventListener('click', almacenarStats);
+    <script>
+        // Funciones importadas: engine.js => setStats() y validatePoints()
+        const statInputs = document.querySelectorAll('.stat-input');
+        const startButton = document.getElementById('start-button');
+        
+        statInputs.forEach(input => {
+            input.addEventListener('input',validatePoints);
+        });
+
+        document.getElementById('start-button').addEventListener('click', setStats);
+
     </script>
+
 </body>
 </html>
