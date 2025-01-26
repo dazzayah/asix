@@ -30,4 +30,69 @@ body {
     text-align: left;
   }
 
+  /* Mensaje narrativo */
+.narrative {
+  color: gray;
+  font-style: italic;
+}
+
+/* Mensaje de combate */
+.damage {
+  color: red;
+  font-weight: bold;
+}
+
+/* Mensaje informativo */
+.info {
+  color: blue;
+}
+
+/* Mensaje de combate */
+.healing {
+  color: green;
+  font-weight: bold;
+}
+
+#health-bars {
+  font-size: large;
+  font-weight: bold;
+}
+
+#player-hp {
+  color: green;
+}
+
+#dragon-hp {
+  color: red;
+}
+
+.tooltip { /* https://www.w3schools.com/howto/howto_css_tooltip.asp */ 
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 500px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -470%;
+  left: -80%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
 

@@ -2,76 +2,207 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPG</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="engine.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="engine.js"></script>
 </head>
 
-<body> 
-    <script>
-        getStats()
-    </script>
-    
-    <div id="gameMenu" class="visible">
-        <h1>Combate</h1>
-        <div class="log" id="combatLog">Registro de combate:</div>
-        <button id="attackButton">Atacar</button>
-        <button id="defendButton">Defender</button>
-        <button id="magicButton">Magia</button>
-        <button id="healButton">Curar</button>
+<body>
+  <div id="game-menu" class="visible">
+    <h1>Estadísticas del combate</h1>
+    <div id="health-bars">
+      <p id="player-hp"></p>
+      <p id="dragon-hp"></p>
     </div>
+    <div class="log" id="combat-log"></div>
+    <button class="tooltip" id="melee-button">Embate destrozador
+      <span class="tooltiptext">Contundente y poderoso golpe capaz de desrozar todo tipo de armaduras...
+        <br><br><b>Inflinge daño físico.</b><br><br> (<i>Para determinar el daño, puntos de fuerza * 2.5 y se lanza un dado D20.</i>)
+      </span>
+    </button>
+    <button class="tooltip" id="range-button">Disparo letal
+      <span class="tooltiptext">Un preciso disparo con arco capaz de inflingir mucho daño, pero
+        solo si se sabe dónde apuntar... Si tienes 5 puntos de agilidad o más, obtienes una tirada adicional
+        de D20. <br><br> <b>Inflinge daño físico.</b> <br><br> (<i>Para determinar el daño, puntos de agilidad * 1.5 y se lanza un dado D12. Añade un D20 si tienes 5
+        puntos de agilidad.</i>)
+      </span>
+    </button>
+    <button class="tooltip" id="dmg-spell-button">Descarga de escarcha
+      <span class="tooltiptext">Un hechizo elemental que lanza una aterradora descarga de 
+        hielo que congela todo aquello que toca. <br><br> <b>Inflinge daño mágico.</b> <br><br>
+         (<i>Para determinar el daño, puntos de intelecto * 2 y se lanza un dado D4.</i>)</span>
+    </button>
+    <button class="tooltip" id="heal-spell-button">Destello de luz
+      <span class="tooltiptext">Un hechizo curativo que brinda al taumaturgo el reconfortante
+        efecto de la luz para sanar sus heridas. <br><br> <b>Restaura puntos de vida.</b> <br><br>
+        (<i>Para determinar la cantidad de vida restaurada, puntos de espíritu * 1.5 y se lanza un dado D6.</i>)
+      </span>
+    </button>
+  </div>
 
-    <!-- Pantalla de Fin del Juego -->
-    <div id="endScreen" class="hidden">
-        <h1 id="resultMessage">Resultado del juego</h1>
-        <button id="restartButton">Reiniciar</button>
-    </div>
+  <!-- Pantallas de Fin del Juego -->
+  <div id="win-end-menu" class="hidden">
+    <h1 id="result-message">¡Has derrotado al dragón, has ganado!</h1>
 
-    <script>
+    <button class="restart-button">Ir al menú</button>
+  </div>
 
-    // Menús
-    const combatScreen = document.getElementById("gameMenu");
-    const endScreen = document.getElementById("endScreen");
+  <div id="lose-end-menu" class="hidden">
+    <h1 id="result-message">Nunca te olvidaremos...</h1>
+    <h2>Has perdido.</h2>
+    <button class="restart-button">Volver a intentarlo</button>
+  </div>
+
+  <script>
+    // ------------------ Definición de variables ------------------
+
+    const str = parseInt(sessionStorage.getItem('str'), 10);
+    const agi = parseInt(sessionStorage.getItem('agi'), 10);
+    const int = parseInt(sessionStorage.getItem('int'), 10);     // Stats
+    const sta = parseInt(sessionStorage.getItem('sta'), 10);
+    const spr = parseInt(sessionStorage.getItem('spr'), 10);
 
 
-    // Botones
-    const startButton = document.getElementById("startButton");
-    const attackButton = document.getElementById("attackButton");
-    const defendButton = document.getElementById("defendButton");
-    const magicButton = document.getElementById("magicButton");
-    const healButton = document.getElementById("healButton");
-    const restartButton = document.getElementById("restartButton");
+    const combatScreen = document.getElementById("game-menu");
+    const endScreen = document.getElementById("end-menu");
+    const meleeButton = document.getElementById("melee-button");
+    const rangeButton = document.getElementById("range-button");
+    const dmgSpellButton = document.getElementById("dmg-spell-button");     // Elementos y botones
+    const healSpellButton = document.getElementById("heal-spell-button");
+    const combatLog = document.getElementById("combat-log");
 
-    // Registro de combate
-    const combatLog = document.getElementById("combatLog");
+    const restartButton = document.querySelectorAll(".restart-button");
 
-    // Evento para reiniciar el juego
-    restartButton.addEventListener("click", () => {
-      endScreen.classList.remove("visible");
-      startScreen.classList.add("visible");
+    // ------------------ Reinicios de la partida ------------------
+
+    const totalPoints = str + agi + int + sta + spr;
+    if (totalPoints == 0) {
+      window.location.href = 'index.html'; // Nos devuelve al menú si no hay puntos asignados
+    }
+
+    // Asignamos la redirección a todos los botones de reinicio (hayamos ganado o perdido)
+    restartButton.forEach((button) => {
+      button.addEventListener("click", () => {
+        window.location.href = 'index.html'; 
+      });
     });
 
-    // Botones de combate: Añadir lógica más tarde
-    attackButton.addEventListener("click", () => {
-      logAction("El jugador ataca con fuerza.");
+    // ------------------ Introducción ------------------
+
+    storyTelling();
+
+    // ------------------------- Combate -------------------------
+
+    let playerHP = 30 + (sta * 4); // Inicializamos nuestra vida escalada con la estadística de aguante
+    let dragonHP = 100; // Puntos de vida del dragón
+
+    /* 
+      El dragón tiene escamas que reducen el daño físico
+      Tiene 3 estados: "up", "weakened" y "down"
+    */
+
+    let dragonScales = "up";
+
+    let playerTurn = true; // Empieza el jugador
+    updateHealthBars(); // Actualiza las barras de vida
+
+    meleeButton.addEventListener("click", () => {
+      if (playerTurn === false) return; // Evita que el jugador ataque cuando no es su turno
+
+      const damage = melee(str);
+      const type = "physical";
+
+      if (dragonScales === "up") {
+        const finalDamage = dragonDefense(damage, type);
+        logAction(`Golpeas al dragón con furia, pero sus escamas amortiguan el golpe a ${finalDamage} puntos de daño.`, "damage");
+        dragonHP = dragonHP - finalDamage;
+      } else if (dragonScales === "weakened") {
+        logAction(`¡Golpeas al dragón con fuerza y destruyes sus escamas debilitadas inflingiendo ${damage} puntos de daño!`, "damage");
+        dragonScales = "down";
+        dragonHP = dragonHP - damage;
+      } else {
+        dragonHP = dragonHP - damage;
+        logAction(`Atacas al dragón y le infliges ${damage} de daño.`, "damage");
+      }
+
+      updateHealthBars();
+
+      // Verificar si el enemigo ha sido derrotado
+      if (dragonHP <= 0) {
+        endGame("¡Has derrotado al dragón!");
+      } else {
+        nextTurn(); // Cambia el turno al enemigo
+      }
     });
 
-    defendButton.addEventListener("click", () => {
-      logAction("El jugador se defiende.");
+    rangeButton.addEventListener("click", () => {
+      if (playerTurn === false) return;
+
+      const damage = range(agi);
+      const type = "physical";
+
+      if (dragonScales === "up") {
+        const finalDamage = dragonDefense(damage, type);
+        logAction(`Apuntas con tu arco y tratas de disparar una flecha en uno de sus puntos vitales,
+        pero sus escamas rechazan el proyectil e inflinges tan solo ${finalDamage} puntos de daño.`, "damage");
+        dragonHP = dragonHP - finalDamage;
+      } else if (dragonScales === "weakened") {
+        const finalDamage = dragonDefense(damage, type);
+        logAction(`Las escamas parecen débiles, pero tu flecha carece de la fuerza suficiente para atravesarlas. 
+        Inflinges ${finalDamage} puntos de daño.`, "damage");
+        dragonHP = dragonHP - finalDamage;
+      } else {
+        dragonHP = dragonHP - damage;
+        logAction(`Disparas con certeza y tu flecha desgarra la carne del dragonante inflingiendo ${damage} de daño.`, "damage");
+      }
+
+      updateHealthBars();
+
+      if (dragonHP <= 0) {
+        endGame("¡Has derrotado al dragón!");
+      } else {
+        nextTurn();
+      }
     });
 
-    magicButton.addEventListener("click", () => {
-      logAction("El jugador lanza un hechizo.");
+    dmgSpellButton.addEventListener("click", () => {
+      if (playerTurn === false) return;
+
+      const damage = dmgSpell(int);
+      const type = "magic";
+
+      if (dragonScales === "up") {
+        const finalDamage = dragonDefense(damage, type);
+        dragonHP = dragonHP - finalDamage;
+        logAction(`Lanzas un hechizo y debilitas las escamas del dragón, infligiendo ${finalDamage} de daño.`, "info");
+        dragonScales = "weakened";
+      } else {
+        const finalDamage = dragonDefense(damage, type);
+        dragonHP = dragonHP - finalDamage;
+        logAction(`Lanzas un hechizo y le infliges ${finalDamage} de daño.`, "damage");
+      }
+
+      updateHealthBars();
+
+      if (dragonHP <= 0) {
+        endGame("El dragón cae derrotado.");
+
+      } else {
+        nextTurn();
+      }
     });
 
-    healButton.addEventListener("click", () => {
-      logAction("El jugador se cura.");
+    healSpellButton.addEventListener("click", () => {
+      if (playerTurn === false) return;
+
+      const heal = healSpell(spr);
+      playerHP = playerHP + heal;
+      logAction(`Canalizas un hechizo sagrado que restaura ${heal} puntos de vida.`, "healing");
+      updateHealthBars();
+      nextTurn();
     });
-
-    </script>
-
-
+  </script>
 </body>
 </html>
