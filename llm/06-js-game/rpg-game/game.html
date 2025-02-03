@@ -30,7 +30,7 @@
       </span>
     </button>
     <button class="tooltip" id="dmg-spell-button">Descarga de escarcha
-      <span class="tooltiptext">Un hechizo elemental que lanza una aterradora descarga de 
+      <span class="tooltiptext">Un hechizo elemental que lanza una aterradora descarga de
         hielo que congela todo aquello que toca. <br><br> <b>Inflinge daño mágico.</b> <br><br>
          (<i>Para determinar el daño, puntos de intelecto * 2 y se lanza un dado D4.</i>)</span>
     </button>
@@ -50,7 +50,7 @@
   </div>
 
   <div id="lose-end-menu" class="hidden">
-    <h1 id="result-message">Nunca te olvidaremos...</h1>
+    <h1 id="lose-message">Nunca te olvidaremos...</h1>
     <h2>Has perdido.</h2>
     <button class="restart-button">Volver a intentarlo</button>
   </div>
@@ -78,14 +78,14 @@
     // ------------------ Reinicios de la partida ------------------
 
     const totalPoints = str + agi + int + sta + spr;
-    if (totalPoints == 0) {
+    if (totalPoints === 0) {
       window.location.href = 'index.html'; // Nos devuelve al menú si no hay puntos asignados
     }
 
     // Asignamos la redirección a todos los botones de reinicio (hayamos ganado o perdido)
     restartButton.forEach((button) => {
       button.addEventListener("click", () => {
-        window.location.href = 'index.html'; 
+        window.location.href = 'index.html';
       });
     });
 
@@ -150,7 +150,7 @@
         dragonHP = dragonHP - finalDamage;
       } else if (dragonScales === "weakened") {
         const finalDamage = dragonDefense(damage, type);
-        logAction(`Las escamas parecen débiles, pero tu flecha carece de la fuerza suficiente para atravesarlas. 
+        logAction(`Las escamas parecen débiles, pero tu flecha carece de la fuerza suficiente para atravesarlas.
         Inflinges ${finalDamage} puntos de daño.`, "damage");
         dragonHP = dragonHP - finalDamage;
       } else {

@@ -16,7 +16,7 @@ function setStats() { // Exportar las estadísticas mediante sessionStorage
 
   window.location.href = 'game.html';
 
-};
+}
 
 // Esta función valida que el total de puntos asignados no supere 15, 
 // y se activa cada vez que se cambia valor de un input
@@ -36,7 +36,7 @@ function validatePoints() {
     startButton.disabled = false;
   }
 
-};
+}
 
 // ----------------- Registro de acciones y combate -----------------
 
@@ -48,7 +48,7 @@ function logAction(message, type) {
   combatLog.appendChild(newLogEntry); // combatLog se inicializa en game.html
   combatLog.scrollTop = combatLog.scrollHeight; // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight
 
-};
+}
 
 function storyTelling() {
   meleeButton.disabled = true;

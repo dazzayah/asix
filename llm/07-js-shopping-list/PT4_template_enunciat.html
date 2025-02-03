@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            text-align: right;
+            padding-top: 10px;
+        }
+
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button.delete {
+            background-color: #dc3545;
+        }
+
+        button.delete:hover {
+            background-color: #c82333;
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 20px;
+        }
+
+        .item-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            text-align: left;
+        }
+
+        .item-box-selected {
+            background-color: #dc3545;
+        }
+
+        .item-info p {
+            margin: 2px 0;
+        }
+
+        .item-box input[type="checkbox"] {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Llista de la compra</h1>
+        <form id="addItemForm">
+            <label for="itemName">Nom:</label>
+            <input id="itemName" type="text" placeholder="Introdueix el nom" required />
+
+            <label for="itemPrice">Preu:</label>
+            <input id="itemPrice" type="number" placeholder="Introdueix el preu (€)" min="0.01" step="0.01" required />
+
+            <div></div>
+            <button type="button" id="addButton">Afegir a la llista</button>
+        </form>
+
+        <button id="calculateTotalButton">Calcular import Total</button>
+        <button id="deleteButton" class="delete">Marcar com a comprats</button>
+
+        <!--Omplir en aquest div la llista d'items per a comprar! -->
+        <div class="item-list" id="itemList">
+
+        </div>
+        <h3 id="totalAmount">Import Total: €0.00</h3>
+    </div>
+
+    <script>
+        // Selección de elementos
+        // Definir aqui tots els const que apuntin als elements que necessitarem mes endavant
+
+        const addButton = document.getElementById('addButton');
+        const calculateTotalButton = document.getElementById('calculateTotalButton');
+        const deleteButton = document.getElementById('deleteButton');
+        const itemList = document.getElementById('itemList');
+        const totalAmount = document.getElementById('totalAmount');
+
+        // Inputs
+        const itemName = document.getElementById('itemName');
+        const itemPrice = document.getElementById('itemPrice');
+        
+        // Función para añadir un ítem al stock
+        addButton.addEventListener('click', () => {
+            const divProduct = document.createElement("div");
+            const divProductInfo = document.createElement("div");
+            const nameProduct = document.createElement("p");
+            const priceProduct = document.createElement("p");
+            const checkboxProduct = document.createElement("input");
+            checkboxProduct.type = "checkbox";
+
+            nameProduct.classList.add("item-info");
+            priceProduct.classList.add("item-info");
+
+            divProductInfo.appendChild(nameProduct);
+            divProductInfo.appendChild(priceProduct);
+            divProduct.appendChild(divProductInfo)
+            divProduct.appendChild(checkboxProduct);
+
+            itemList.appendChild(divProduct);
+
+            divProduct.classList.add("item-box")
+            nameProduct.textContent = `Nom: ${itemName.value}`;
+            priceProduct.textContent = `Preu: ${itemPrice.value}€`;
+
+            itemName.value = "";
+            itemPrice.value = "";
+
+            // capturar els elements del form
+            // comprovar dades, sino son correctes alertar a l'usuari
+
+            // Punt 4) Dins d'aquesta funció es pot 
+            // afegir el event que gestionara el canvi de color quan el checkbox esta seleccionat
+
+            
+        });
+
+
+        // Función para calcular el importe total
+        calculateTotalButton.addEventListener('xxxx', () => {
+            // Omplir logica
+        });
+
+        // Función para eliminar ítems seleccionados
+        deleteButton.addEventListener('xxxx', () => {
+            const items = itemList.querySelectorAll('xxxxxx');
+            items.forEach(item => {
+                    // ....
+                    // Mirar els marcats i esborrar-los 1 a 1
+            });
+        });
+        
+    </script>
+</body>
+</html>
