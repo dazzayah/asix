@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Escriu un document XML anomenat smartphones.xml que emmagatzemi la següent informació sobre dispositius mòbils:
+
+        Nom (model)
+        Sistema operatiu: nom i versió
+        Dimensions: amplada, alçada i fons
+        Pes
+        Resolució de pantalla
+        Processador
+        Memòria
+        Preu
+        Codifica almenys dos models diferents
+-->
+
+<smartphones>
+    <modelo numeroDeStock="001">
+        <nombre>iPhone 15 Pro</nombre>
+        <os>iOS 17</os>
+        <dimensiones>
+            <anchura unidad="mm">70.6</anchura>
+            <altura unidad="mm">146.6</altura>
+            <profundidad unidad="mm">8.25</profundidad>
+        </dimensiones>
+        <peso unidad="g">206</peso>
+        <procesador>Apple A17 Pro</procesador>
+        <ram unidad="GB">8</ram>
+        <precio moneda="EUR">1199</precio>
+    </modelo>
+    <modelo numeroDeStock="002">
+        <nombre>Samsung Galaxy S23 Ultra</nombre>
+        <os>Android 13</os>
+        <dimensiones>
+            <anchura unidad="mm">78.1</anchura>
+            <altura unidad="mm">163.4</altura>
+            <profundidad unidad="mm">8.9</profundidad>
+        </dimensiones>
+        <peso unidad="g">234</peso>
+        <procesador>Qualcomm Snapdragon 8 Gen 2</procesador>
+        <ram unidad="GB">12</ram>
+        <precio moneda="EUR">1399</precio>
+    </modelo>
+</smartphones>

@@ -7,12 +7,11 @@ $db = 'PT1_EMPLEATS';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8";
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 try {
     $pdo = new PDO($dsn, $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<script> alert('Conexión establecida con éxito, bienvenido $user');</script>";
 } catch (PDOException $e) {
     echo 'Error de connexió: ' . $e->getMessage();
     exit;

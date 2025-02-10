@@ -258,3 +258,6 @@ WHERE codi_proj = 3;
 SELECT COUNT(DISTINCT codi_proj)
 FROM empleats
 WHERE codi_proj IS NOT NULL;
+
+-- 42
+
