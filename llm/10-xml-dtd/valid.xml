@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE comanda SYSTEM "exercici.dtd">
+<comanda>
+    <producte>
+        <nom>Portàtil</nom>
+        <quantitat>1</quantitat>
+        <preu>1200.50</preu>
+    </producte>
+    <producte>
+        <nom>Ratolí</nom>
+        <quantitat>2</quantitat>
+        <preu>25.99</preu>
+    </producte>
+    <facturacio>Carrer Major, 10</facturacio>
+    <enviament>Carrer Nou, 5</enviament>
+</comanda>

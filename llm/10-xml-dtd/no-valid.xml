@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE comanda SYSTEM "exercici.dtd">
+<comanda>
+    <producte>
+        <nom>Portàtil</nom>
+        <quantitat>1</quantitat>
+    </producte>
+    <facturacio>Carrer Major, 10</facturacio>
+</comanda>

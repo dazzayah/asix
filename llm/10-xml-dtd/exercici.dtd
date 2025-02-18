@@ -1,0 +1,7 @@
+<!ELEMENT comanda (producte+, facturacio, enviament)>
+    <!ELEMENT producte (nom, quantitat, preu)>
+        <!ELEMENT nom (#PCDATA)>
+        <!ELEMENT quantitat (#PCDATA)>
+        <!ELEMENT preu (#PCDATA)>
+    <!ELEMENT facturacio (#PCDATA)>
+    <!ELEMENT enviament (#PCDATA)>

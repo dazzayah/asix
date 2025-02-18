@@ -1,0 +1,17 @@
+<!ELEMENT smartphones (smartphone+)>
+<!ELEMENT smartphone (nom+, sistemaOperatiu, dimensions, pes, resolucioPantalla?, processador, memoria, preu)>
+    <!ATTLIST smartphone id CDATA #REQUIRED>
+    <!ELEMENT nom (#PCDATA)>
+    <!ELEMENT sistemaOperatiu (nom, versio)>
+        <!ELEMENT sistemaOperatiu.nom (#PCDATA)>
+        <!ELEMENT versio (#PCDATA)>
+    <!ELEMENT dimensions (amplada, alcada, fons)>
+        <!ELEMENT amplada (#PCDATA)>
+        <!ELEMENT alcada (#PCDATA)>
+        <!ELEMENT fons (#PCDATA)>
+    <!ELEMENT pes (#PCDATA)>
+    <!ELEMENT resolucioPantalla (#PCDATA)>
+    <!ELEMENT processador (#PCDATA)>
+    <!ELEMENT memoria (#PCDATA)>
+    <!ELEMENT preu (#PCDATA)>
+

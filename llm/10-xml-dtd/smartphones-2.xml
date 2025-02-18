@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smartphones SYSTEM "smartphones.dtd">
+
+<smartphones>
+    <smartphone id="354665-22">
+        <nom>iPhone 12 Pro</nom>
+        <sistemaOperatiu>
+            <!--Possibles valors: IOS|ANDROID -->
+            <nom>IOS</nom>
+            <versio>13</versio>
+        </sistemaOperatiu>
+        <dimensions>
+            <amplada>75.6mm</amplada>
+            <alcada>144.6mm</alcada>
+            <fons>7.25mm</fons>
+        </dimensions>
+        <pes>287g</pes>
+		<!--Resolucio pot ser opcional -->
+        <resolucioPantalla>2500x1200</resolucioPantalla>
+        <processador>A13 Pro</processador>
+        <memoria>16GB RAM</memoria>
+        <preu>1199</preu>
+    </smartphone>
+
+    <smartphone id="445-22">
+        <nom>Redmi Note 8 Pro</nom>
+        <sistemaOperatiu>
+            <!--Possibles valors: IOS|ANDROID -->
+            <nom>ANDROID</nom>
+            <versio>8</versio>
+        </sistemaOperatiu>
+        <dimensions>
+            <amplada>45.6mm</amplada>
+            <alcada>154.6mm</alcada>
+            <fons>8.10mm</fons>
+        </dimensions>
+        <pes>197g</pes>
+        <resolucioPantalla>2400x1100</resolucioPantalla>
+        <processador>AMD chachi</processador>
+        <memoria>8GB RAM</memoria>
+        <preu>1199</preu>
+    </smartphone>
+</smartphones>
