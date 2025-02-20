@@ -1,9 +1,7 @@
 <?php
-require_once "includes/login/signup.inc.php";
+// require_once "includes/login/signup.inc.php";
 require_once "includes/login/signup_view.inc.php";
 require_once "includes/security/session_config.inc.php";
-
-
 ?>
 
 <!doctype html>
@@ -45,8 +43,10 @@ require_once "includes/security/session_config.inc.php";
         </div>
     </form>
 </div>
+
 <?php
     checkSignupErrors();
+    var_dump($_SESSION);
     var_dump($_POST);
 ?>
 

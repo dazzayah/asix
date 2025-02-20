@@ -1,0 +1,239 @@
+/* Estil general per a la pàgina */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+    text-align: center;
+}
+
+/* Estil per al títol */
+h1 {
+    color: #333;
+}
+
+/* Contenidor per centrar la taula */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estil per a les cel·les d'encapçalament */
+th {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+/* Estil per a les cel·les de dades */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Zebra striping per a files */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Enllaços de les accions */
+td a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Millora de la interacció al passar per sobre */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ajustar mida de les columnes */
+th, td {
+    text-align: left;
+}
+
+/* Ajustar amplada de la columna d'accions */
+td:last-child {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Estil bàsic per a enllaços com a botons */
+a.boto {
+    display: inline-block;
+    background-color: #007bff; /* Blau */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecte al passar el cursor */
+a.boto:hover {
+    background-color: #0056b3; /* Blau més fosc */
+}
+
+/* Opcional: estil per als botons d'editar i eliminar */
+a.editar {
+    background-color: #28a745; /* Verd */
+}
+
+a.editar:hover {
+    background-color: #1e7e34;
+}
+
+a.eliminar {
+    background-color: #dc3545; /* Vermell */
+}
+
+a.eliminar:hover {
+    background-color: #a71d2a;
+}
+
+
+input[type="submit"] {
+    background-color: #28a745; /* Verd estil Bootstrap */
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+/* Efecte al passar el cursor */
+input[type="submit"]:hover {
+    background-color: #218838; /* Verd més fosc */
+}
+
+/* Efecte al clicar */
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Opcional: estil desactivat */
+input[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 35px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Estil dels camps de text */
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Estil del botó */
+input[type="submit"] {
+    width: 100%;
+    background-color: #007bff; /* Blau Bootstrap */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+/* Efecte en passar el cursor pel botó */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Efecte al clicar el botó */
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+
+
+
+
+
+
+
+
+

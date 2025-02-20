@@ -1,6 +1,5 @@
 <?php
-require_once "signup_contr.inc.php";
-
+// require_once "signup_contr.inc.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];

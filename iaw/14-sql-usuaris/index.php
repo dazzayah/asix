@@ -1,22 +1,32 @@
+<?php
+require_once 'includes/db_queries.inc.php';
+require_once 'includes/functions.inc.php';
+
+$users = fetchUsers();
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
-    <style>
-        a.button {
-            padding: 1px 6px;
-            border: 1px outset buttonborder;
-            border-radius: 3px;
-            color: buttontext;
-            background-color: buttonface;
-            text-decoration: none;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llistat d'Usuaris</title>
+    <link rel="stylesheet" href="includes/estils.css">
 </head>
 <body>
-    <a href="register.php" class="button"> Registrarse </a>
-    <br><br>
-    <a href="#" class="button">Loguearse</a>
+    <h1>Llistat d'Usuaris</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Fecha de Inicio</th>
+            <th>Nacimiento</th>
+            <th></th> <!-- Dejo el header vacío porque si no en blanco y es feo -->
+        </tr>
+        <?php foreach ($users as $user) {
+            echo userRow($user);} ?>
+    </table>
+    <a class="boto" href="add.php">Afegir</a>
 </body>
 </html>
