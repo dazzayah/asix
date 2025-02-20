@@ -2,7 +2,7 @@
 $host = '127.0.0.1';
 $db = 'ILIA_PHP';
 $username = 'root';
-$password = 'root';
+$password = '';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8";
 

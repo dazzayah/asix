@@ -16,24 +16,29 @@ function fetchUsers() {
 }
 
 // Funció per obtenir un usuari per ID
-function fetchUserID($id) {
-	global $pdo;
-}
-
-function fetchUserData() {
-    global $pdo;
-}
-
-// Funció per eliminar un usuari
-function rmUser($id) {
+function fetchUserData($id) {
     try {
         global $pdo;
-        rmAddress($id);
-        $query = 'DELETE FROM usuaris WHERE id = ?;';
-        $stmt = $pdo -> prepare($query);
-        $stmt -> execute([$id]);
+        $query = 'SELECT * FROM usuaris WHERE id = ?;';
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
     } catch (PDOException $e) {
-        exit( $e -> getMessage());
+        exit($e -> getMessage());
+    }
+}
+
+function fetchAddressData($id) {
+    try {
+        global $pdo;
+        $query = 'SELECT * FROM adreces WHERE id = ?;';
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    } catch (PDOException $e) {
+        exit($e -> getMessage());
     }
 }
 
@@ -48,7 +53,32 @@ function rmAddress($id) {
 	}
 }
 
-function addUser($name, $surname, $username, $email, $birth, $street, $city, $postal_code, $country) {
+function rmLog($id) {
+    try {
+        global $pdo;
+        $query = 'DELETE FROM logs WHERE usuari_id = ?;';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$id]);
+    } catch (PDOException $e) {
+        exit( $e -> getMessage());
+    }
+}
+
+// Funció per eliminar un usuari
+function rmUser($id) {
+    try {
+        global $pdo;
+        rmAddress($id); // <-- Borramos las referencia (FK) primero
+        rmLog($id);
+        $query = 'DELETE FROM usuaris WHERE id = ?;';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$id]);
+    } catch (PDOException $e) {
+        exit( $e -> getMessage());
+    }
+}
+
+function fullAddUser($name, $surname, $username, $email, $birth, $street, $city, $postal_code, $country) {
 	try {
 		global $pdo;
 		$query = 'INSERT INTO usuaris (nom, cognoms, nom_usuari, correu, data_naixement) VALUES (?, ?, ?, ?, ?);';
@@ -64,40 +94,78 @@ function addUser($name, $surname, $username, $email, $birth, $street, $city, $po
 	}
 }
 
-/*
-// Funció per obtenir un usuari per ID
-function obtenir_adreca($id) {
-	global $pdo;
+function briefAddUser($name, $surname, $username, $email, $birth) {
+    try {
+        global $pdo;
+        $query = 'INSERT INTO usuaris (nom, cognoms, nom_usuari, correu, data_naixement) VALUES (?, ?, ?, ?, ?);';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$name, $surname, $username, $email, $birth]);
+    } catch (PDOException $e) {
+        exit( $e -> getMessage());
+    }
 }
 
-// Funció per afegir un usuari
-function afegir_usuari($nom, $cognoms, $nom_usuari, $correu, $data_naixement) {
-	global $pdo;
+function addLog($user_id, $field, $old_value, $new_value, $mod_date, $ip) {
+    try {
+        global $pdo;
+        $query = 'INSERT INTO logs (usuari_id, camp_modificat, valor_antic, valor_nou, data_modificacio, ip) 
+                  VALUES (?, ?, ?, ?, ?, ?);';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$user_id, $field, $old_value, $new_value, $mod_date, $ip]);
+    } catch (PDOException $e) {
+        exit ($e -> getMessage());
+    }
 }
 
-// Funció per actualitzar un usuari
-function actualitzar_usuari($id, $nom, $cognoms, $nom_usuari, $correu, $data_naixement) {
-	global $pdo;
+function editUser($id, $name, $surname, $username, $email, $birth, $street, $city, $postal_code, $country) {
+    try {
+        global $pdo;
+
+        // Toma de datos para registrarlos en el log, (antes de hacerse ningun cambio)
+
+        $query = 'SELECT nom_usuari, correu FROM usuaris WHERE id = ?;';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$id]);
+        $old_data = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+        $old_username = $old_data['nom_usuari'];
+        $old_email = $old_data['correu'];
+        $mod_date = date('Y-m-d H:i:s');
+
+        // Edicion
+
+        $query = 'UPDATE usuaris SET nom = ?, cognoms = ?, nom_usuari = ?, correu = ?, data_naixement = ? WHERE id = ?;';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$name, $surname, $username, $email, $birth, $id]);
+
+        // Y ahora comprobamos si se han hecho cambios y los registramos si es asi
+        if ($old_username !== $username) {
+            addLog($id, "nom_usuari", $old_username, $username, $mod_date, $_SERVER['REMOTE_ADDR']);
+        }
+        if ($old_email !== $email) {
+            addLog($id, "correu", $old_email, $email, $mod_date, $_SERVER['REMOTE_ADDR']);
+        }
+
+        // Para evitar utilizar sintaxis propia de SQL para solucionar el "conflicto" de utilizar UPDATE o INSERT extraeremos los datos mediante un select
+        $query = 'SELECT * FROM adreces WHERE id = ?;';
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute([$id]);
+        $exists = $stmt -> fetch(); // <-- verificamos si contiene algo (true), o no (false).
+
+        // Condicional UPDATE || INSERT
+
+        if ($exists == true) {
+            $query = 'UPDATE adreces SET carrer = ?, ciutat = ?, codi_postal = ?, pais = ? WHERE id = ?;';
+            $stmt = $pdo -> prepare($query);
+            $stmt -> execute([$street, $city, $postal_code, $country, $id]);
+        } else {
+            $query = 'INSERT INTO adreces (id, carrer, ciutat, codi_postal, pais) VALUES (?, ?, ?, ?, ?);';
+            $stmt = $pdo -> prepare($query);
+            $stmt -> execute([$id, $street, $city, $postal_code, $country]);
+        }
+    } catch (PDOException $e) {
+        exit( $e -> getMessage());
+    }
 }
 
-// Funció per actualitzar una adreça
-function actualitzar_adreca($id, $carrer, $ciutat, $codi_postal, $pais) {
-	global $pdo;
-}
-
-
-// Funció per eliminar l'adreça d'un usuari
-function eliminar_adreca($id_usuari) {
-	global $pdo;
-}
-
-// Funció per eliminar logs
-function eliminar_adreca($id_usuari) {
-	global $pdo;
-}
-
-// Funció per registrar els logs
-function registrar_log($usuari_id, $camp_modificat, $valor_antic, $valor_nou) {
-	global $pdo;
-}*/
 

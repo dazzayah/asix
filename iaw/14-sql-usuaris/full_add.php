@@ -8,8 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $birth = $_POST['birth'];
+    $street = $_POST['street'];
+    $city = $_POST['city'];
+    $postal_code = $_POST['postal_code'];
+    $country = $_POST['country'];
 
-    briefAddUser($name, $surname, $username, $email, $birth);
+    fullAddUser($name, $surname, $username, $email, $birth, $street, $city, $postal_code, $country);
     header('Location: index.php');
     exit;
 }
@@ -46,6 +50,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="birth">Fecha de nacimiento</label>
             <input type="date" id="birth" name="birth"/>&nbsp;
         </div>
+
+        <!-- Para la tabla "adreces" -->
+        <div>
+            <label for="street">Calle</label>
+            <input type="text" id="street" name="street"/>&nbsp;
+        </div>
+        <div>
+            <label for="city">Ciudad</label>
+            <input type="text" id="city" name="city"/>&nbsp;
+        </div>
+        <div>
+            <label for="postal_code">Código Postal</label>
+            <input type="text" id="postal_code" name="postal_code"/>&nbsp;
+        </div>
+        <div>
+            <label for="country">País</label>
+            <input type="text" id="country" name="country"/>&nbsp;
+        </div>
+
         <div>
             <input type="submit" value="Añadir"/>
         </div>

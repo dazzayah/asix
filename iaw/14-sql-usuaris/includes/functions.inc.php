@@ -1,6 +1,6 @@
 <?php
 
-function userRow($user): string
+function userRow($user)
 {
     return "
     <tr>
@@ -10,8 +10,8 @@ function userRow($user): string
         <td>" . htmlspecialchars($user['correu']) . "</td>
         <td>" . htmlspecialchars($user['data_naixement']) . "</td>
         <td>
-            <a href='../edit.php?id=" . htmlspecialchars($user['id']) . "' class='btn btn-default'>Editar</a> &nbsp;
-            <a href='/includes/delete.inc.php?id=" . htmlspecialchars($user['id']) . "' class='btn btn-default' onclick='return confirm(\"¿Seguro que quieres eliminar a este usuario?\");'>Eliminar</a>
+            <a href='edit.php?id=" . htmlspecialchars($user['id']) . "' class='btn btn-default'>Editar</a> &nbsp;
+            <a href='includes/delete.inc.php?id=" . htmlspecialchars($user['id']) . "' class='btn btn-default' onclick='return confirm(\"¿Seguro que quieres eliminar a este usuario?\");'>Eliminar</a>
         </td>
     </tr>";
 }
