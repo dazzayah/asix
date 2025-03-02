@@ -1,0 +1,36 @@
+{
+  "caballos": [
+    {
+      "nom": "Rayo",
+      "id": 123456,
+      "nacimiento": "14-05-2008",
+      "raza": "Criollo",
+      "constitucion": {
+        "peso": 340,
+        "altura": 190
+      },
+      "historial-medico": {
+        "visitas": {
+          "fecha": "12-04-2024",
+          "descripcion": "Pata herida."
+        }
+      }
+    },
+    {
+      "nom": "Nadiem",
+      "id": 34567,
+      "nacimiento": "01-01-2006",
+      "raza": "Mustang",
+      "constitucion": {
+        "peso": 500,
+        "altura": 230
+      },
+      "historial-medico": {
+        "visitas": {
+          "fecha": "12-04-2024",
+          "descripcion": "Pata herida."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "dt": 1392661800,
+  "id": 2513076,
+  "name": "Bigastro",
+  "cod": 200,
+  "coord": {
+    "lon": -0.9,
+    "lat": 38.06
+  },
+  "weather": {
+    "id": 801,
+    "main": "Clouds",
+    "description": "few clouds"
+  },
+  "main": {
+    "temp": 288.15,
+    "pressure": 1012,
+    "humidity": 72,
+    "temp_min": 288.15,
+    "temp_max": 288.15
+  }
+}
+
