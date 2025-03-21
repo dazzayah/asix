@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-
-<llibre xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:schemaLocation="1.xsd">
-    <autor>Miguel Hernandez</autor>
-    <titol>Obra poètica completa</titol>
-</llibre>

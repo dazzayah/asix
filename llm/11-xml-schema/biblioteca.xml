@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="biblioteca.xsd">
+    <llibre codi="123">
+        <autor>Miguel Hernandez</autor>
+        <titol>Obra poètica completa</titol>
+        <ISBN>ISBN-YTE-67346297</ISBN>
+        <stock>150</stock>
+        <ubicacio>estanteria 1</ubicacio>
+        <comentaris>
+            <comentari>
+                <text>El llibre és molt interessant</text>
+                <usuari>Pepito</usuari>
+                <data_hora_publicacio>2002-05-30T09:00:00</data_hora_publicacio>
+            </comentari>
+        </comentaris>
+    </llibre>
+    <llibre codi="124">
+        <autor>Federico Garcia Lorca</autor>
+        <titol>Poesia completa</titol>
+        <ISBN>ISBN-ABC-12345678</ISBN>
+        <ubicacio>estanteria 2</ubicacio>
+    </llibre>
+</biblioteca>
